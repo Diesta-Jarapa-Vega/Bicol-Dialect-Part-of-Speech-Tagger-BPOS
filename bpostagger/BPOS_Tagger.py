@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
-from CRF_model import pos_tag
+from CRF_model import pos_tag, getUserInput
 
 class Ui_BPOS(object):
     def setupUi(self, BPOS):
@@ -902,7 +902,7 @@ class Ui_BPOS(object):
 "border-radius: 4px")
         self.input_file_btn.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("assets/images/file.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("bpostagger/assets/images/file.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.input_file_btn.setIcon(icon)
         self.input_file_btn.setFlat(False)
         self.input_file_btn.setObjectName("input_file_btn")
@@ -939,7 +939,7 @@ class Ui_BPOS(object):
         self.pos_tag_btn.setStyleSheet("background-color: rgb(255, 199, 0);\n"
 "border-radius: 4px")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("assets/images/check_logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("bpostagger/assets/images/check_logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pos_tag_btn.setIcon(icon1)
         self.pos_tag_btn.setFlat(False)
         self.pos_tag_btn.setObjectName("pos_tag_btn")
@@ -976,7 +976,7 @@ class Ui_BPOS(object):
         self.edit_text_btn.setStyleSheet("background-color: rgb(255, 199, 0);\n"
 "border-radius: 4px")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("assets/images/edit_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("bpostagger/assets/images/edit_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.edit_text_btn.setIcon(icon2)
         self.edit_text_btn.setFlat(False)
         self.edit_text_btn.setObjectName("edit_text_btn")
@@ -992,7 +992,7 @@ class Ui_BPOS(object):
 "border-radius: 4px")
         self.less_btn.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("assets/images/hidden.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("bpostagger/assets/images/hidden.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.less_btn.setIcon(icon3)
         self.less_btn.setFlat(False)
         self.less_btn.setObjectName("less_btn")
@@ -1008,7 +1008,7 @@ class Ui_BPOS(object):
 "border-radius: 4px")
         self.more_btn.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("assets/images/view.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("bpostagger/assets/images/view.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.more_btn.setIcon(icon4)
         self.more_btn.setFlat(False)
         self.more_btn.setObjectName("more_btn")
