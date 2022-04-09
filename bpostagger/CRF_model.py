@@ -1,10 +1,4 @@
-import time
-from unicodedata import digit
-import nltk
-import scipy.stats
 import string, re
-import matplotlib.pyplot as plt
-from itertools import chain
 from collections import Counter
 from nltk.tag.util import untag
 from sklearn_crfsuite import CRF, metrics
@@ -15,7 +9,7 @@ from sklearn.metrics import classification_report
 
 tagged_sentences = tokenization('bpostagger/datasets/tagged.txt')
 
-cutoff = int(.80 * len(tagged_sentences))
+cutoff = int(.90 * len(tagged_sentences))
 training_sentences = tagged_sentences[:cutoff]
 test_sentences = tagged_sentences[cutoff:]
 

@@ -1,5 +1,4 @@
-import warnings
-import string, re
+import string
 from collections import Counter
 
 ## Function to find most frequent words
