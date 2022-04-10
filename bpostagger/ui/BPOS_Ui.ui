@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>783</width>
+    <width>799</width>
     <height>595</height>
    </rect>
   </property>
@@ -2617,7 +2617,7 @@ border-radius: 4px</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>assets/images/file.png</normaloff>assets/images/file.png</iconset>
+                     <normaloff>../assets/images/file.png</normaloff>../assets/images/file.png</iconset>
                    </property>
                    <property name="flat">
                     <bool>false</bool>
@@ -2778,7 +2778,7 @@ border-radius: 4px</string>
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>assets/images/edit_icon.png</normaloff>assets/images/edit_icon.png</iconset>
+                      <normaloff>../assets/images/edit_icon.png</normaloff>../assets/images/edit_icon.png</iconset>
                     </property>
                     <property name="flat">
                      <bool>false</bool>
@@ -2814,7 +2814,7 @@ border-radius: 4px</string>
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>assets/images/hidden.png</normaloff>assets/images/hidden.png</iconset>
+                      <normaloff>../assets/images/hidden.png</normaloff>../assets/images/hidden.png</iconset>
                     </property>
                     <property name="flat">
                      <bool>false</bool>
@@ -2850,7 +2850,7 @@ border-radius: 4px</string>
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>assets/images/view.png</normaloff>assets/images/view.png</iconset>
+                      <normaloff>../assets/images/view.png</normaloff>../assets/images/view.png</iconset>
                     </property>
                     <property name="flat">
                      <bool>false</bool>
@@ -7287,16 +7287,27 @@ border-radius: 4px</string>
                <pointsize>12</pointsize>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">margin-right: 24
+</string>
+             </property>
              <property name="text">
-              <string>The core of BPOS: Bicol Part-of-speech Tagger is based on the application Condition Random Field under the Natural Language Processing  to create the Part-Of-Speech-Tagger.
+              <string>This Bicol Part of Speech Tagger application analyzes your input text and assigns the appropriate part of speech tags to each word based on its morphological characteristics.
 
-Please be aware that these machine learning techniques might not reach 100 % accuracy.  </string>
+This tagger tool is extremely useful when it comes to both studying and using the Bicol dialect. This application allows you to gain a deeper understanding of how the Central Bicol dialect works, making it much easier for you to learn and utilize this as a teaching tool. If you're a linguistics student or working on linguistics research, this is a tool that can help you produce your own corpora.
+
+The core of BPOS: Bicol Part-of-speech Tagger is based on the application Condition Random Field under the Natural Language Processing  to create the Part-Of-Speech-Tagger.
+
+</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              <set>Qt::AlignJustify|Qt::AlignTop</set>
              </property>
              <property name="wordWrap">
               <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>0</number>
              </property>
             </widget>
            </item>
@@ -7330,8 +7341,13 @@ Please be aware that these machine learning techniques might not reach 100 % acc
               </item>
               <item>
                <widget class="QLabel" name="label_3">
+                <property name="font">
+                 <font>
+                  <italic>true</italic>
+                 </font>
+                </property>
                 <property name="text">
-                 <string>For more information, click here.</string>
+                 <string>Developers: Christian Angelo Diesta, Mika-Ella Jarapa, Rica Mae Vega</string>
                 </property>
                </widget>
               </item>
