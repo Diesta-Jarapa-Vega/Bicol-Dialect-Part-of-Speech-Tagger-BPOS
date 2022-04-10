@@ -16,6 +16,7 @@ from sklearn_crfsuite import CRF, metrics
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import classification_report
 from collections import Counter
+
 class Ui_BPOS(object):
     def setupUi(self, BPOS):
         BPOS.setObjectName("BPOS")
@@ -2571,6 +2572,7 @@ class Ui_BPOS(object):
         self.navLine.setVisible(True)
     
     def inputTextFile(self):
+        self.pos_tagger_editor.setPlainText(" ")
         try:
             self.filename = QFileDialog.getOpenFileName(filter="txt (*.txt)")
             self.file_name_text.setText(self.filename[0])  # field_filename
