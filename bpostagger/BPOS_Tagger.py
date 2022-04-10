@@ -2572,7 +2572,7 @@ class Ui_BPOS(object):
         self.navLine.setVisible(True)
     
     def inputTextFile(self):
-        self.pos_tagger_editor.setPlainText(" ")
+        self.pos_tagger_editor.setPlainText("")
         try:
             self.filename = QFileDialog.getOpenFileName(filter="txt (*.txt)")
             self.file_name_text.setText(self.filename[0])  # field_filename
