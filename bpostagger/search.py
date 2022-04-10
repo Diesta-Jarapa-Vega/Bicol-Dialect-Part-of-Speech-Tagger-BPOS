@@ -12,6 +12,7 @@ for idx, sentence in enumerate(sentences):
 
 wordcount = 0
 count = 0
+c = 0
 
 for sentence in listSentences:
     for word in sentence:
@@ -19,6 +20,16 @@ for sentence in listSentences:
       if "\\" not in word:
         count+=1
         print(word)
-                      
+
+# to find non-ascii characters
+for sentence in listSentences:
+  for word in sentence:
+    for letter in word:
+      ascii = letter.isascii()
+      if ascii == False:
+        print(letter)
+        if letter in word:
+          print(word)
+
 print("\ntotal words: ", wordcount)
 print("number of words untagged: ", count)

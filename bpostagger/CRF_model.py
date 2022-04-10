@@ -13,9 +13,9 @@ from features import features
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import classification_report
 
-tagged_sentences = tokenization('bpostagger/datasets/tagged.txt')
+tagged_sentences = tokenization('bpostagger/datasets/tagged_v2.txt')
 
-cutoff = int(.80 * len(tagged_sentences))
+cutoff = int(.90 * len(tagged_sentences))
 training_sentences = tagged_sentences[:cutoff]
 test_sentences = tagged_sentences[cutoff:]
 
