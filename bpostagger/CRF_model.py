@@ -16,7 +16,8 @@ try:
 except ImportError:
     pass
 
-tagged_sentences = tokenization('bpostagger/datasets/tagged_v2.txt')
+tagged_sentences = tokenization(os.path.join(basedir, "datasets", "tagged_validated.txt"))
+print(basedir)
 
 cutoff = int(.90 * len(tagged_sentences))
 training_sentences = tagged_sentences[:cutoff]
