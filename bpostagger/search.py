@@ -1,7 +1,16 @@
 # code to check words with no tags yet
+import sys, os
+basedir = os.path.dirname(__file__)
+
+try:
+    from ctypes import windll  # Only exists on Windows.
+    myappid = 'mycompany.myproduct.subproduct.version'
+    windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
 
 #f = open('C:/Users/Rica/Desktop/BPOS/datasets/tagged-2.txt', 'r')
-f = open('C:/Users/Rica/Desktop/BPOS/datasets/tagged.txt', 'r')
+f = open(os.path.join(basedir, "datasets", "tagged_validated.txt"), 'r')
 
 sentences = f.read().splitlines()
 listSentences = []

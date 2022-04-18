@@ -34,7 +34,7 @@ def frequency(file, Counter):
     f.close()
     return frequent
 
-tokens = frequency('bpostagger/datasets/tagged.txt', Counter)
+tokens = frequency(os.path.join(basedir, "datasets", "tagged_validated.txt"), Counter)
 
 frequentwords = []
 for token in tokens:
