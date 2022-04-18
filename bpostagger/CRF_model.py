@@ -6,6 +6,15 @@ from tokenizer import tokenization
 from features import features
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import classification_report
+import sys, os
+basedir = os.path.dirname(__file__)
+
+try:
+    from ctypes import windll  # Only exists on Windows.
+    myappid = 'mycompany.myproduct.subproduct.version'
+    windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
 
 tagged_sentences = tokenization('bpostagger/datasets/tagged_v2.txt')
 

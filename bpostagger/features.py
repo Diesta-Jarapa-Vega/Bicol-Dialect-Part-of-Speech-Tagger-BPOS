@@ -1,5 +1,14 @@
 import string
 from collections import Counter
+import sys, os
+basedir = os.path.dirname(__file__)
+
+try:
+    from ctypes import windll  # Only exists on Windows.
+    myappid = 'mycompany.myproduct.subproduct.version'
+    windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
 
 ## Function to find most frequent words
 def frequency(file, Counter):
