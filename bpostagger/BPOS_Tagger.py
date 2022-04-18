@@ -2592,13 +2592,16 @@ class Ui_BPOS(object):
             self.filename = QFileDialog.getOpenFileName(filter="txt (*.txt)")
             self.file_name_text.setText(self.filename[0])  # field_filename
             self.path = self.filename[0]
-            self.file_name_text.setVisible(True)
-            file = open(self.path, 'r')
-            with file:
-                self.temp = file.read()
-                self.pos_tagger_editor.appendPlainText(self.temp)
-            self.pos_tagger_editor.setReadOnly(True)
-            self.file_tagging_label.setVisible(True)
+            try: 
+                file = open(self.path, 'r')
+                with file:
+                    self.temp = file.read()
+                    self.pos_tagger_editor.appendPlainText(self.temp)
+                self.pos_tagger_editor.setReadOnly(True)
+                self.file_tagging_label.setVisible(True)
+                self.file_name_text.setVisible(True)
+            except:
+                print('Error')
         except FileNotFoundError:
             pass
     
