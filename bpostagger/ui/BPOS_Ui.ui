@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>595</height>
+    <width>890</width>
+    <height>594</height>
    </rect>
   </property>
   <property name="palette">
@@ -2485,12 +2485,13 @@ margin: 4</string>
                   <widget class="QLabel" name="file_name_text">
                    <property name="font">
                     <font>
+                     <family>Arial</family>
                      <italic>false</italic>
                      <underline>true</underline>
                     </font>
                    </property>
                    <property name="text">
-                    <string>Text File Name Uploaded</string>
+                    <string>Upload Text File</string>
                    </property>
                   </widget>
                  </item>
@@ -2505,7 +2506,7 @@ margin: 4</string>
                    <property name="maximumSize">
                     <size>
                      <width>50</width>
-                     <height>200</height>
+                     <height>250</height>
                     </size>
                    </property>
                    <property name="palette">
@@ -2514,27 +2515,27 @@ margin: 4</string>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
                       <colorrole role="Base">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -2543,27 +2544,27 @@ margin: 4</string>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
                       <colorrole role="Base">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -2572,27 +2573,27 @@ margin: 4</string>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
                       <colorrole role="Base">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
-                         <red>190</red>
-                         <green>190</green>
-                         <blue>190</blue>
+                         <red>225</red>
+                         <green>225</green>
+                         <blue>225</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -2609,8 +2610,8 @@ margin: 4</string>
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(190, 190, 190);
-border-radius: 4px</string>
+                    <string notr="true">border-radius: 4px;
+background-color: rgb(225, 225, 225);</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -2618,6 +2619,12 @@ border-radius: 4px</string>
                    <property name="icon">
                     <iconset>
                      <normaloff>../assets/images/file.png</normaloff>../assets/images/file.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
                    </property>
                    <property name="flat">
                     <bool>false</bool>
@@ -2668,7 +2675,7 @@ background-color: palette(base)</string>
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="posTagBtn">
                  <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -2709,6 +2716,28 @@ border-radius: 4px</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>90</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Arial</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(184, 0, 0);</string>
+                    </property>
+                    <property name="text">
+                     <string>Invalid Input</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QLabel" name="file_tagging_label">
                     <property name="minimumSize">
                      <size>
@@ -2724,7 +2753,8 @@ border-radius: 4px</string>
                     </property>
                     <property name="font">
                      <font>
-                      <pointsize>9</pointsize>
+                      <family>Arial</family>
+                      <pointsize>10</pointsize>
                       <weight>50</weight>
                       <italic>true</italic>
                       <bold>false</bold>
@@ -2732,7 +2762,7 @@ border-radius: 4px</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(184, 0, 0);</string>
+                     <string notr="true">color: rgb(0, 140, 0)</string>
                     </property>
                     <property name="text">
                      <string>Tagging for input file will let you save an output text file</string>
@@ -2742,8 +2772,32 @@ border-radius: 4px</string>
                     </property>
                    </widget>
                   </item>
-                  <item>
-                   <widget class="QWidget" name="widget_2" native="true"/>
+                  <item alignment="Qt::AlignRight">
+                   <widget class="QPushButton" name="pushButton">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Arial</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(170, 170, 255);
+border-radius: 4px</string>
+                    </property>
+                    <property name="text">
+                     <string>Configure</string>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../assets/images/settings.png</normaloff>../assets/images/settings.png</iconset>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -2889,7 +2943,7 @@ border-radius: 4px</string>
                  </font>
                 </property>
                 <property name="text">
-                 <string>Enter a complete sentence (no single words!) and click at &quot;POS TAG&quot;. The tagging accuraccy works high when grammar and construction of sentences are correct.</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter a complete sentence (no single words!) or use a text file as an input and click at &amp;quot;POS TAG&amp;quot;. The tagging accuraccy works high when grammar and construction of sentences are correct.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignJustify|Qt::AlignVCenter</set>
