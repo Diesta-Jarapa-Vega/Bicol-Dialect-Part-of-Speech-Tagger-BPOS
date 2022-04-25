@@ -1,4 +1,4 @@
-import string, re
+import string, re, enchant, os
 from collections import Counter
 from nltk.tag.util import untag
 from sklearn_crfsuite import CRF, metrics
@@ -138,6 +138,9 @@ def check_special_char(word):
     else:
         return False
 
+# * English validator
+englishChecker = enchant.Dict("en_US")    
+
 ## Function for processing user sentence input
 def getUserInput(userInput):
     user_input = userInput.split(" ")
@@ -146,12 +149,58 @@ def getUserInput(userInput):
         if check_special_char(word) == False:
             updated_input.append(word)
         else:
-            for letter in word:
-                if letter in string.punctuation:
-                    new_word = word.replace(letter, '')
-                    updated_input.append(new_word)
-                    updated_input.append(letter)
+            # English validator
+            if englishChecker.check(word) == True:
+                print('There are english words in the inputs')
+                # * Clear input fields *
+            else:
+                for letter in word:
+                    if letter in string.punctuation:
+                        new_word = word.replace(letter, '')
+                        updated_input.append(new_word)
+                        updated_input.append(letter)
+                        
+     # Palitan na lang ang address
+    userFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\user-input.txt', 'w')
+    dataFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\tagged.txt', 'a')
+
+    # If button is clicked for separating user inputs from original datasets
+    #textFileTransfer(updated_input, userFileOpen)
+   
+    # If button is clicked for combining user inputs to the original datasets
+    #textFileTransfer(updated_input, dataFileOpen)
+
+    userFileOpen.close()
+    dataFileOpen.close()                   
+     
     return updated_input
+
+def textFileTransfer(updated_input, file):
+    # Separating sentences if user inputs multiple sentences
+    # Tagged user inputs for importing to txt file
+    
+    newUserInputs = []
+    userInputs = pos_tag(updated_input)
+    userInputs = [', '.join(map(str, x)) for x in userInputs]
+
+    # Check if the file is empty 
+    if os.stat(file.name).st_size != 0:
+        file.write("\n")
+
+    for pair in userInputs:
+        
+        # For removing none pairs in the list
+        if ' None' not in pair:
+            newUserInputs.append(pair)
+        if ' PUNCT' in pair:
+            topushSentence = " ".join(newUserInputs)
+            topushSentence = topushSentence.replace(", ", "/")
+            print(topushSentence)
+            
+            file.write(topushSentence + "\n")
+
+            topushSentence = ''
+            newUserInputs.clear()
 
 
 ## Function for POS Tagger
