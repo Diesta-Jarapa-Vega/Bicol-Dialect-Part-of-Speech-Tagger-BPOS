@@ -1,12 +1,15 @@
 import string, re, enchant, os
+from turtle import position
 from collections import Counter
 from nltk.tag.util import untag
+from numpy import true_divide
 from sklearn_crfsuite import CRF, metrics
 from tokenizer import tokenization
 from features import features
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import classification_report
 import sys, os
+
 basedir = os.path.dirname(__file__)
 
 try:
@@ -130,7 +133,6 @@ statefeatures(Counter(model.state_features_).most_common()[-20:])
 
 ## Function that checks for special characters
 def check_special_char(word):
-
     if re.search(r"\,",word):
         return True
     elif re.search(r"\.",word):
@@ -138,42 +140,59 @@ def check_special_char(word):
     else:
         return False
 
-# * English validator
-englishChecker = enchant.Dict("en_US")    
+# English validator
+englishChecker = enchant.Dict("en_US")
+
+# Function for checking User Input
+def inputTextChecker(input):
+    user_input = input.split(" ")
+    sentenceLength = len(user_input)
+    for word in user_input:
+        if englishChecker.check(word) == True:
+            print('There are english words in the inputs')
+            return True
+    special_char = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+    # check if input is a one word
+    if sentenceLength == 1:
+        print('String is one word')
+        return True
+    # check string contains special characters or not
+    if(special_char.search(input) == None):
+        return False
+    else:
+        print('String contains special characters.')
+        return True
 
 ## Function for processing user sentence input
 def getUserInput(userInput):
+    userInput = userInput.rstrip()
     user_input = userInput.split(" ")
     updated_input = []
     for word in user_input:
         if check_special_char(word) == False:
             updated_input.append(word)
         else:
-            # English validator
-            if englishChecker.check(word) == True:
-                print('There are english words in the inputs')
-                # * Clear input fields *
-            else:
-                for letter in word:
-                    if letter in string.punctuation:
-                        new_word = word.replace(letter, '')
-                        updated_input.append(new_word)
-                        updated_input.append(letter)
-                        
-     # Palitan na lang ang address
-    userFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\user-input.txt', 'w')
-    dataFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\tagged.txt', 'a')
+            for letter in word:
+                if letter in string.punctuation:
+                    new_word = word.replace(letter, '')
+                    updated_input.append(new_word)
+                    updated_input.append(letter)                
+    return updated_input
+
+def saveTaggedTextsToFile(taggedText):
+    # Palitan na lang ang address
+    # userFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\user-input.txt', 'w')
+    # dataFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\tagged.txt', 'a')
 
     # If button is clicked for separating user inputs from original datasets
-    #textFileTransfer(updated_input, userFileOpen)
+    # textFileTransfer(updated_input, userFileOpen)
    
     # If button is clicked for combining user inputs to the original datasets
-    #textFileTransfer(updated_input, dataFileOpen)
+    # textFileTransfer(updated_input, dataFileOpen)
 
-    userFileOpen.close()
-    dataFileOpen.close()                   
-     
-    return updated_input
+    # userFileOpen.close()
+    # dataFileOpen.close()
+    return taggedText
 
 def textFileTransfer(updated_input, file):
     # Separating sentences if user inputs multiple sentences
@@ -212,5 +231,6 @@ def pos_tag(sentence):
         finalSet.append(taggedSentence[i])
         finalSet.append(tuple([' ', 'None']))
     finalSet.append(taggedSentence[-1])
-    print(finalSet)
     return finalSet
+
+
