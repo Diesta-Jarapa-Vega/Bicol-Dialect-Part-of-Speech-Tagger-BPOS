@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
-from CRF_model import pos_tag, getUserInput
+from CRF_model import pos_tag, getUserInput, inputTextChecker
 from collections import Counter
 from nltk.tag.util import untag
 from sklearn_crfsuite import CRF, metrics
@@ -2778,43 +2778,52 @@ class Ui_BPOS(object):
         self.oldText = input_text
         try:
             if (input_text) and (not hasattr(self, 'path')):
-                sentence = getUserInput(input_text)
-                self.sentence_tags = pos_tag(sentence)
-                self.pos_tagger_editor.setPlainText(" ")
-                for name in self.sentence_tags:
-                    word = name[0]
-                    tag = name[1]
-                    color = QtGui.QColor(0, 0, 0)
-                    if(tag == "ADJ"):
-                        color = QtGui.QColor(127, 217, 255)
-                    elif(tag == "ADV"):
-                        color = QtGui.QColor(238, 163, 163)
-                    elif(tag == "CONJ"):
-                        color = QtGui.QColor(156, 226, 123)
-                    elif(tag == "DET"):
-                        color = QtGui.QColor(255, 105, 105)
-                    elif(tag == "NN"):
-                        color = QtGui.QColor(217, 156, 255)
-                    elif(tag == "PREP"):
-                        color = QtGui.QColor(143, 140, 255)
-                    elif(tag == "VB"):
-                        color = QtGui.QColor(52, 116, 124)
-                    elif(tag == "PRON"):
-                        color = QtGui.QColor(98, 202, 108)
-                    elif(tag == "NUM"):
-                        color = QtGui.QColor(235, 255, 111)
-                    elif(tag == "PART"):
-                        color = QtGui.QColor(255, 195, 235)
-                    else:
-                        color = QtGui.QColor(255,255,255)
-                    color_format = self.pos_tagger_editor.currentCharFormat()
-                    color_format.setBackground(color)
-                    self.pos_tagger_editor.setCurrentCharFormat(color_format)
-                    self.pos_tagger_editor.insertPlainText(word)
-                self.buttons.setCurrentIndex(1)
-                self.pos_tagger_editor.setReadOnly(True)
-                self.input_file_btn.setDisabled(True)
-                self.more_btn.setVisible(True)
+                if inputTextChecker(input_text) != True:
+                    sentence = getUserInput(input_text)
+                    try:
+                        self.sentence_tags = pos_tag(sentence)
+                        self.pos_tagger_editor.setPlainText(" ")
+                        for name in self.sentence_tags:
+                            word = name[0]
+                            tag = name[1]
+                            color = QtGui.QColor(0, 0, 0)
+                            if(tag == "ADJ"):
+                                color = QtGui.QColor(127, 217, 255)
+                            elif(tag == "ADV"):
+                                color = QtGui.QColor(238, 163, 163)
+                            elif(tag == "CONJ"):
+                                color = QtGui.QColor(156, 226, 123)
+                            elif(tag == "DET"):
+                                color = QtGui.QColor(255, 105, 105)
+                            elif(tag == "NN"):
+                                color = QtGui.QColor(217, 156, 255)
+                            elif(tag == "PREP"):
+                                color = QtGui.QColor(143, 140, 255)
+                            elif(tag == "VB"):
+                                color = QtGui.QColor(52, 116, 124)
+                            elif(tag == "PRON"):
+                                color = QtGui.QColor(98, 202, 108)
+                            elif(tag == "NUM"):
+                                color = QtGui.QColor(235, 255, 111)
+                            elif(tag == "PART"):
+                                color = QtGui.QColor(255, 195, 235)
+                            else:
+                                color = QtGui.QColor(255,255,255)
+                            color_format = self.pos_tagger_editor.currentCharFormat()
+                            color_format.setBackground(color)
+                            self.pos_tagger_editor.setCurrentCharFormat(color_format)
+                            self.pos_tagger_editor.insertPlainText(word)
+                        self.buttons.setCurrentIndex(1)
+                        self.pos_tagger_editor.setReadOnly(True)
+                        self.input_file_btn.setDisabled(True)
+                        self.more_btn.setVisible(True)
+                        self.label_4.setVisible(False)
+                    except:
+                      self.label_4.setVisible(True)
+                      self.pos_tagger_editor.setPlainText("")  
+                else:
+                    self.label_4.setVisible(True)
+                    self.pos_tagger_editor.setPlainText("")
             elif self.path:
                 self.input_file_btn.setDisabled(True)
                 tagged_output_sentences = []
