@@ -147,23 +147,21 @@ englishChecker = enchant.Dict("en_US")
 def inputTextChecker(input):
     user_input = input.split(" ")
     sentenceLength = len(user_input)
-    errorInput = False
     for word in user_input:
         if englishChecker.check(word) == True:
             print('There are english words in the inputs')
-            errorInput = True
+            return True
     special_char = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
     # check if input is a one word
     if sentenceLength == 1:
         print('String is one word')
-        errorInput = True        
+        return True        
     # check string contains special characters or not
     if(special_char.search(input) == None):
-        errorInput = False
+        return False
     else:
         print('String contains special characters.')
-        errorInput = True
-    return errorInput
+        return True
 
 ## Function for processing user sentence input
 def getUserInput(userInput):
