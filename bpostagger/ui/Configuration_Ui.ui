@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>Config</class>
+ <widget class="QDialog" name="Config">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -430,7 +430,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="1">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="Retrain_Btn">
      <property name="font">
       <font>
        <pointsize>12</pointsize>
@@ -439,10 +439,13 @@
      <property name="text">
       <string>Retrain Model</string>
      </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="Validate_Btn">
      <property name="font">
       <font>
        <pointsize>12</pointsize>
@@ -451,10 +454,13 @@
      <property name="text">
       <string>Validate Corpus</string>
      </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
    <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="Title">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -469,11 +475,12 @@
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Configure</string>
+      <string>Configure BPOS Model</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -482,22 +489,7 @@
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QWidget" name="widget" native="true">
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>20</y>
-        <width>201</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Guide About this Configuration Setting</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
+     <layout class="QGridLayout" name="gridLayout_2"/>
     </widget>
    </item>
   </layout>
