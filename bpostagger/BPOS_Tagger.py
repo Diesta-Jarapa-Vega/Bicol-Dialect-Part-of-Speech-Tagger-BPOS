@@ -18,6 +18,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import classification_report
 from collections import Counter
 import sys, os
+from Configuration import Ui_Config
 
 basedir = os.path.dirname(__file__)
 
@@ -2598,6 +2599,7 @@ class Ui_BPOS(object):
         self.input_file_btn.clicked.connect(self.inputTextFile)
         self.more_btn.clicked.connect(self.viewMore)
         self.less_btn.clicked.connect(self.getOldText)
+        self.pushButton.clicked.connect(self.openConfigRcvWindow)
     
     # functions for changing tabs
     def changeAboutTab(self):
@@ -2609,6 +2611,12 @@ class Ui_BPOS(object):
         self.page.setCurrentIndex(0)
         self.navLine_2.setVisible(False)
         self.navLine.setVisible(True)
+
+    def openConfigRcvWindow(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_Config()
+        self.ui.setupUi(self.window)
+        self.window.show()
     
     def inputTextFile(self):
         self.pos_tagger_editor.setPlainText("")
