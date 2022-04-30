@@ -179,27 +179,39 @@ def getUserInput(userInput):
                     updated_input.append(letter)                
     return updated_input
 
-def saveTaggedTextsToFile(taggedText):
+def saveTaggedInputTextToFile(taggedText):
     # Palitan na lang ang address
-    # userFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\user-input.txt', 'w')
-    # dataFileOpen = open(r'C:\Users\63995\Desktop\Files for Thesis\Bicol-Dialect-Part-of-Speech-Tagger-BPOS-main\bpostagger\datasets\tagged.txt', 'a')
-
+    userFileOpen = open(r'bpostagger\datasets\user_inputs.txt', 'a')
+    
     # If button is clicked for separating user inputs from original datasets
-    # textFileTransfer(updated_input, userFileOpen)
-   
-    # If button is clicked for combining user inputs to the original datasets
-    # textFileTransfer(updated_input, dataFileOpen)
+    textFileTransfer(taggedText, userFileOpen)
 
-    # userFileOpen.close()
-    # dataFileOpen.close()
+    userFileOpen.close()
+    
     return taggedText
+
+def mergeTextFiles():
+    file_to_read ="bpostagger\datasets\user_inputs.txt"
+    write_to_file="bpostagger\datasets\tagged_validated.txt"
+
+    # Reading a file
+    file = open(file_to_read,"r")
+    data = file.read()
+    file.close()
+
+    # Writing to a file
+    with open(write_to_file,"a") as file:   # with method auto closes the file object
+        if os.stat(file.name).st_size != 0:
+            file.write("\n")
+        file.write(data)
+    print('Completed')
 
 def textFileTransfer(updated_input, file):
     # Separating sentences if user inputs multiple sentences
     # Tagged user inputs for importing to txt file
     
     newUserInputs = []
-    userInputs = pos_tag(updated_input)
+    userInputs = updated_input
     userInputs = [', '.join(map(str, x)) for x in userInputs]
 
     # Check if the file is empty 
@@ -207,7 +219,6 @@ def textFileTransfer(updated_input, file):
         file.write("\n")
 
     for pair in userInputs:
-        
         # For removing none pairs in the list
         if ' None' not in pair:
             newUserInputs.append(pair)
@@ -216,7 +227,7 @@ def textFileTransfer(updated_input, file):
             topushSentence = topushSentence.replace(", ", "/")
             print(topushSentence)
             
-            file.write(topushSentence + "\n")
+            file.write(topushSentence)
 
             topushSentence = ''
             newUserInputs.clear()
@@ -231,6 +242,5 @@ def pos_tag(sentence):
         finalSet.append(taggedSentence[i])
         finalSet.append(tuple([' ', 'None']))
     finalSet.append(taggedSentence[-1])
+    saveTaggedInputTextToFile(finalSet)
     return finalSet
-
-
