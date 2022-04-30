@@ -147,21 +147,23 @@ englishChecker = enchant.Dict("en_US")
 def inputTextChecker(input):
     user_input = input.split(" ")
     sentenceLength = len(user_input)
+    errorInput = False
     for word in user_input:
         if englishChecker.check(word) == True:
             print('There are english words in the inputs')
-            return True
+            errorInput = True
     special_char = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
     # check if input is a one word
     if sentenceLength == 1:
         print('String is one word')
-        return True
+        errorInput = True        
     # check string contains special characters or not
     if(special_char.search(input) == None):
-        return False
+        errorInput = False
     else:
         print('String contains special characters.')
-        return True
+        errorInput = True
+    return errorInput
 
 ## Function for processing user sentence input
 def getUserInput(userInput):
@@ -191,8 +193,8 @@ def saveTaggedInputTextToFile(taggedText):
     return taggedText
 
 def mergeTextFiles():
-    file_to_read ="bpostagger\datasets\user_inputs.txt"
-    write_to_file="bpostagger\datasets\tagged_validated.txt"
+    file_to_read =r"bpostagger\datasets\user_inputs.txt"
+    write_to_file=r"bpostagger\datasets\tagged_validated.txt"
 
     # Reading a file
     file = open(file_to_read,"r")
