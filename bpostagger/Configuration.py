@@ -10,6 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from CRF_model import mergeTextFiles
+import os
+import sys
 
 class Ui_Config(object):
     def setupUi(self, Config):
@@ -189,6 +191,10 @@ class Ui_Config(object):
 
         # Function for Validating Corpus
         self.Validate_Btn.clicked.connect(mergeTextFiles)
+        self.Retrain_Btn.clicked.connect(self.restartApp)
+    
+    def restartApp(self):
+        os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
 
     def retranslateUi(self, Config):
         _translate = QtCore.QCoreApplication.translate
