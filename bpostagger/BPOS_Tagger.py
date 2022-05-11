@@ -2614,12 +2614,8 @@ class Ui_BPOS(object):
         self.navLine.setVisible(True)
 
     def openConfigRcvWindow(self):
-        # self.window = QtWidgets.QDialog()
-        # self.ui = Ui_Config()
-        # self.ui.setupUi(self.window)
-        # self.window.show()
-        updateDialog = Ui_Config()
-        updateDialog.exec_()
+        configDialog = Ui_Config()
+        configDialog.exec_()
     
     def inputTextFile(self):
         self.pos_tagger_editor.setPlainText("")
@@ -2898,7 +2894,7 @@ class Ui_BPOS(object):
 ""))
         self.label_3.setText(_translate("BPOS", "Developers: Christian Angelo Diesta, Mika-Ella Jarapa, Rica Mae Vega"))
 
-# class for dialog box
+### Class for Ui_Config Dialog Box
 class Ui_Config(QDialog, Ui_Config):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
@@ -3104,13 +3100,18 @@ class Ui_Config(QDialog, Ui_Config):
         # Function for Validating Corpus
         self.Validate_Btn.clicked.connect(mergeTextFiles)
         self.Retrain_Btn.clicked.connect(self.restartApp)
+        self.pushButton.clicked.connect(self.openTextFile)
     
     def restartApp(self):
         os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
 
+    def openTextFile(self):
+        os.startfile(os.path.join(basedir, "datasets", "user_inputs.txt"))
+        print('View File')
+
     def retranslateUi(self, Config):
         _translate = QtCore.QCoreApplication.translate
-        Config.setWindowTitle(_translate("Config", "Dialog"))
+        Config.setWindowTitle(_translate("Config", "Configure BPOS"))
         self.Retrain_Btn.setText(_translate("Config", "Retrain Model"))
         self.Title.setText(_translate("Config", "Configure BPOS Model"))
         self.label.setText(_translate("Config", "Every tagged texts are saved in a local text file. This conffiguration will improve the accuraccy performace of the BPOS Tagger model when a corpus is validated and added to the corpus and retraining the mode."))
