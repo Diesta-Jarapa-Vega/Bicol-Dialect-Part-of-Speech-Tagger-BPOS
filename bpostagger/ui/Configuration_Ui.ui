@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>394</width>
-    <height>257</height>
+    <width>385</width>
+    <height>268</height>
    </rect>
   </property>
   <property name="palette">
@@ -429,24 +429,6 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="font">
-      <font>
-       <pointsize>9</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: red</string>
-     </property>
-     <property name="text">
-      <string>Error Text File Has No Content</string>
-     </property>
-     <property name="indent">
-      <number>5</number>
-     </property>
-    </widget>
-   </item>
    <item row="5" column="1">
     <widget class="QPushButton" name="Retrain_Btn">
      <property name="font">
@@ -480,6 +462,8 @@
       <font>
        <family>Arial</family>
        <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -503,6 +487,9 @@
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Every tagged texts are saved in a local text file. This configuration will improve the accuraccy performace of the BPOS Tagger model. When the user inputs corpus is validated it will add to the main corpus of the model and finally user can retrain the model.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
+        </property>
         <property name="wordWrap">
          <bool>true</bool>
         </property>
@@ -511,18 +498,24 @@
      </layout>
     </widget>
    </item>
-   <item row="5" column="0">
-    <widget class="QPushButton" name="Validate_Btn">
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_3">
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>9</pointsize>
       </font>
      </property>
-     <property name="text">
-      <string>Validate Corpus</string>
+     <property name="styleSheet">
+      <string notr="true">color: green</string>
      </property>
-     <property name="autoDefault">
-      <bool>false</bool>
+     <property name="text">
+      <string>Sucess! Corpus Validated</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="indent">
+      <number>5</number>
      </property>
     </widget>
    </item>
@@ -555,18 +548,36 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="label_3">
+   <item row="5" column="0">
+    <widget class="QPushButton" name="Validate_Btn">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Validate Corpus</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_2">
      <property name="font">
       <font>
        <pointsize>9</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: green</string>
+      <string notr="true">color: red</string>
      </property>
      <property name="text">
-      <string>Sucess! Corpus Validated</string>
+      <string>Error Text File Has No Content</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
      <property name="indent">
       <number>5</number>
