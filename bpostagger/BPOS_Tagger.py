@@ -3130,7 +3130,6 @@ class Ui_Config(QDialog, Ui_Config):
         self.Retrain_Btn.setDefault(False)
     
     def validateCorpus(self):
-        mergeTextFiles()
         if mergeTextFiles():
             self.label_3.setVisible(True)
             file_to_read =r"bpostagger\datasets\user_inputs.txt"
