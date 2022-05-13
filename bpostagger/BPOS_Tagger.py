@@ -2902,7 +2902,7 @@ class Ui_Config(QDialog, Ui_Config):
         
     def setupUi(self, Config):
         Config.setObjectName("Config")
-        Config.resize(391, 199)
+        Config.resize(394, 257)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -3042,13 +3042,21 @@ class Ui_Config(QDialog, Ui_Config):
         Config.setPalette(palette)
         self.gridLayout = QtWidgets.QGridLayout(Config)
         self.gridLayout.setObjectName("gridLayout")
+        self.label_2 = QtWidgets.QLabel(Config)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("color: red")
+        self.label_2.setIndent(5)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 3, 0, 1, 1)
         self.Retrain_Btn = QtWidgets.QPushButton(Config)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.Retrain_Btn.setFont(font)
         self.Retrain_Btn.setAutoDefault(False)
         self.Retrain_Btn.setObjectName("Retrain_Btn")
-        self.gridLayout.addWidget(self.Retrain_Btn, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.Retrain_Btn, 5, 1, 1, 1)
         self.Title = QtWidgets.QLabel(Config)
         self.Title.setMinimumSize(QtCore.QSize(0, 0))
         self.Title.setMaximumSize(QtCore.QSize(16777215, 30))
@@ -3077,7 +3085,7 @@ class Ui_Config(QDialog, Ui_Config):
         self.Validate_Btn.setFont(font)
         self.Validate_Btn.setAutoDefault(False)
         self.Validate_Btn.setObjectName("Validate_Btn")
-        self.gridLayout.addWidget(self.Validate_Btn, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.Validate_Btn, 5, 0, 1, 1)
         self.pushButton = QtWidgets.QPushButton(Config)
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -3093,6 +3101,14 @@ class Ui_Config(QDialog, Ui_Config):
         self.pushButton.setFlat(True)
         self.pushButton.setObjectName("pushButton")
         self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 1, QtCore.Qt.AlignLeft)
+        self.label_3 = QtWidgets.QLabel(Config)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("color: green")
+        self.label_3.setIndent(5)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout.addWidget(self.label_3, 4, 0, 1, 1)
 
         self.retranslateUi(Config)
         QtCore.QMetaObject.connectSlotsByName(Config)
@@ -3101,15 +3117,19 @@ class Ui_Config(QDialog, Ui_Config):
         self.Validate_Btn.clicked.connect(self.validateCorpus)
         self.Retrain_Btn.clicked.connect(self.restartApp)
         self.pushButton.clicked.connect(self.openTextFile)
+        self.label_2.setVisible(False)
+        self.label_3.setVisible(False)
     
     def validateCorpus(self):
         mergeTextFiles()
         if mergeTextFiles():
+            self.label_3.setVisible(True)
             file_to_read =r"bpostagger\datasets\user_inputs.txt"
             # removing texts in user inputs text file after validation
             f = open(file_to_read, 'r+')
             f.truncate(0)
         else:
+            self.label_2.setVisible(True)
             print('Error No Content')
 
     def restartApp(self):
@@ -3122,11 +3142,13 @@ class Ui_Config(QDialog, Ui_Config):
     def retranslateUi(self, Config):
         _translate = QtCore.QCoreApplication.translate
         Config.setWindowTitle(_translate("Config", "Configure BPOS"))
+        self.label_2.setText(_translate("Config", "Error Text File Has No Content"))
         self.Retrain_Btn.setText(_translate("Config", "Retrain Model"))
         self.Title.setText(_translate("Config", "Configure BPOS Model"))
-        self.label.setText(_translate("Config", "Every tagged texts are saved in a local text file. This conffiguration will improve the accuraccy performace of the BPOS Tagger model when a corpus is validated and added to the corpus and retraining the mode."))
+        self.label.setText(_translate("Config", "<html><head/><body><p>Every tagged texts are saved in a local text file. This configuration will improve the accuraccy performace of the BPOS Tagger model. When the user inputs corpus is validated it will add to the main corpus of the model and finally user can retrain the model.</p></body></html>"))
         self.Validate_Btn.setText(_translate("Config", "Validate Corpus"))
         self.pushButton.setText(_translate("Config", "View Text File"))
+        self.label_3.setText(_translate("Config", "Sucess! Corpus Validated"))
 
 if __name__ == "__main__":
     import sys
