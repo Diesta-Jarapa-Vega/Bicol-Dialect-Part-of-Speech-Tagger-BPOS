@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>385</width>
-    <height>268</height>
+    <height>238</height>
    </rect>
   </property>
   <property name="palette">
@@ -442,6 +442,9 @@
      <property name="autoDefault">
       <bool>false</bool>
      </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
    <item row="0" column="0" colspan="2">
@@ -498,7 +501,7 @@
      </layout>
     </widget>
    </item>
-   <item row="4" column="0">
+   <item row="3" column="1">
     <widget class="QLabel" name="label_3">
      <property name="font">
       <font>
@@ -560,6 +563,9 @@
      </property>
      <property name="autoDefault">
       <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
