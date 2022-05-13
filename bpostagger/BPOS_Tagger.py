@@ -3098,10 +3098,20 @@ class Ui_Config(QDialog, Ui_Config):
         QtCore.QMetaObject.connectSlotsByName(Config)
 
         # Function for Validating Corpus
-        self.Validate_Btn.clicked.connect(mergeTextFiles)
+        self.Validate_Btn.clicked.connect(self.validateCorpus)
         self.Retrain_Btn.clicked.connect(self.restartApp)
         self.pushButton.clicked.connect(self.openTextFile)
     
+    def validateCorpus(self):
+        mergeTextFiles()
+        if mergeTextFiles():
+            file_to_read =r"bpostagger\datasets\user_inputs.txt"
+            # removing texts in user inputs text file after validation
+            f = open(file_to_read, 'r+')
+            f.truncate(0)
+        else:
+            print('Error No Content')
+
     def restartApp(self):
         os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
 

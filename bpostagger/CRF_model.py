@@ -187,29 +187,25 @@ def saveTaggedInputTextToFile(taggedText):
     return taggedText
 
 def mergeTextFiles():
-    try:
-        file_to_read =r"bpostagger\datasets\user_inputs.txt"
-        write_to_file=r"bpostagger\datasets\tagged_validated.txt"
+    file_to_read =r"bpostagger\datasets\user_inputs.txt"
+    write_to_file=r"bpostagger\datasets\tagged_validated.txt"
 
-        # Reading a file
-        file = open(file_to_read,"r")
-        data = file.read()
-        file.close()
+    # Reading a file
+    file = open(file_to_read,"r")
+    data = file.read()
+    file.close()
 
-        if os.stat(file.name).st_size != 0:
-            # Writing to a file
-            with open(write_to_file,"a") as file:   # with method auto closes the file object
-                if os.stat(file.name).st_size != 0:
-                    file.write("\n")
-                file.write(data)
-            print('Completed')
-            # removing texts in user inputs text file after validation
-            f = open(file_to_read, 'r+')
-            f.truncate(0)
-        else:
-            print('Error no content')
-    except:
-        print('No Content')
+    if os.stat(file.name).st_size != 0:
+        # Writing to a file
+        with open(write_to_file,"a") as file:   # with method auto closes the file object
+            if os.stat(file.name).st_size != 0:
+                file.write("\n")
+            file.write(data)
+        print('Completed')
+        return True
+    else:
+        print('Error no content')
+        return False
 
 def textFileTransfer(updated_input, file):
     # Separating sentences if user inputs multiple sentences
