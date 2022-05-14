@@ -2629,7 +2629,7 @@ class Ui_BPOS(object):
                     self.temp = file.read()
                     self.pos_tagger_editor.appendPlainText(self.temp)
                 self.pos_tagger_editor.setReadOnly(True)
-                # self.file_tagging_label.setVisible(True)
+                self.file_tagging_label.setVisible(True)
                 self.file_name_text.setVisible(True)
             except:
                 print('Error')
@@ -3151,7 +3151,8 @@ class Ui_Config(QDialog, Ui_Config):
 
     def retranslateUi(self, Config):
         _translate = QtCore.QCoreApplication.translate
-        Config.setWindowTitle(_translate("Config", "Dialog"))
+        Config.setWindowTitle(_translate("Config", "Configure BPOS"))
+        Config.setWindowIcon(QtGui.QIcon(os.path.join(basedir, "app_logo.ico")))
         self.Retrain_Btn.setText(_translate("Config", "Retrain Model"))
         self.Title.setText(_translate("Config", "Configure BPOS Model"))
         self.label.setText(_translate("Config", "<html><head/><body><p>Every tagged texts are saved in a local text file. This configuration will improve the accuraccy performace of the BPOS Tagger model. When the user inputs corpus is validated it will add to the main corpus of the model and finally user can retrain the model.</p></body></html>"))
