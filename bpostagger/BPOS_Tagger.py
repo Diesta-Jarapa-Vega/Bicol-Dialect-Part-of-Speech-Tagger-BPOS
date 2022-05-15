@@ -30,7 +30,10 @@ try:
 except ImportError:
     pass
 
-class Ui_BPOS(object):
+class Ui_BPOS(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
     def setupUi(self, BPOS):
         BPOS.setObjectName("BPOS")
         BPOS.resize(890, 594)
