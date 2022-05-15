@@ -221,13 +221,14 @@ def textFileTransfer(updated_input, file):
     if os.stat(file.name).st_size != 0:
         file.write("\n")
 
+    print('userInputs' + userInputs)
     for pair in userInputs:
         # For removing none pairs in the list
         if ' None' not in pair:
             newUserInputs.append(pair)
         if ' PUNCT' in pair:
             topushSentence = " ".join(newUserInputs)
-            topushSentence = topushSentence.replace(", ", "/")
+            topushSentence = topushSentence.replace(", ", "\\")
             print(topushSentence)
             
             file.write(topushSentence)
