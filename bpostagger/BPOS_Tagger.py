@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog, QMainWindow, QDialog
-from CRF_model import pos_tag, getUserInput, inputTextChecker
+from CRF_model import pos_tag, getUserInput, inputTextChecker, mergeTextFiles
 from collections import Counter
 from nltk.tag.util import untag
 from sklearn_crfsuite import CRF, metrics
@@ -19,7 +19,6 @@ from sklearn.metrics import classification_report
 from collections import Counter
 import sys, os
 from Configuration import Ui_Config
-from CRF_model import mergeTextFiles
 
 basedir = os.path.dirname(__file__)
 
