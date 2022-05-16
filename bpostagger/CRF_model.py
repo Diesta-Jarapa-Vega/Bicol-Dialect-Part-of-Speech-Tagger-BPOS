@@ -188,8 +188,8 @@ def saveTaggedInputTextToFile(taggedText):
 
 def mergeTextFiles():
     try:
-        file_to_read =r"bpostagger\datasets\user_inputs.txt"
-        write_to_file=r"bpostagger\datasets\tagged_validated.txt"
+        file_to_read = os.path.join(basedir, "datasets", "user_inputs.txt")
+        write_to_file= os.path.join(basedir, "datasets", "tagged_validated.txt")
 
         # Reading a file
         file = open(file_to_read,"r")
@@ -221,7 +221,6 @@ def textFileTransfer(updated_input, file):
     if os.stat(file.name).st_size != 0:
         file.write("\n")
 
-    print('userInputs' + userInputs)
     for pair in userInputs:
         # For removing none pairs in the list
         if ' None' not in pair:
