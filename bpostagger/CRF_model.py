@@ -177,7 +177,7 @@ def getUserInput(userInput):
 
 def saveTaggedInputTextToFile(taggedText):
     # Palitan na lang ang address
-    userFileOpen = open(r'bpostagger\datasets\user_inputs.txt', 'a')
+    userFileOpen = open(os.path.join(basedir, "datasets", "user_inputs.txt"), 'w')
     
     # If button is clicked for separating user inputs from original datasets
     textFileTransfer(taggedText, userFileOpen)
