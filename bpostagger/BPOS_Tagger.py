@@ -2787,7 +2787,7 @@ class Ui_BPOS(QMainWindow):
         self.oldText = input_text
         try:
             if (input_text) and (not hasattr(self, 'path')):
-                if inputTextChecker(input_text) != True:
+                if not inputTextChecker(input_text):
                     sentence = getUserInput(input_text)
                     try:
                         self.sentence_tags = pos_tag(sentence)
