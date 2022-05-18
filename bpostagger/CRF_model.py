@@ -13,19 +13,19 @@ import sys, os
 basedir = os.path.dirname(__file__)
 
 try:
-    from ctypes import windll  # Only exists on Windows.
+    from ctypes import windll 
     myappid = 'mycompany.myproduct.subproduct.version'
     windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 except ImportError:
     pass
 
 tagged_sentences = tokenization(os.path.join(basedir, "datasets", "tagged_validated.txt"))
-print(basedir)
 
 cutoff = int(.90 * len(tagged_sentences))
 training_sentences = tagged_sentences[:cutoff]
 test_sentences = tagged_sentences[cutoff:]
 
+# Function for creating a dataset for modeling
 def transform_to_dataset(tagged_sentences):
     X, y = [], []
  
@@ -140,9 +140,6 @@ def check_special_char(word):
     else:
         return False
 
-# English validator
-englishChecker = enchant.Dict("en_US")
-
 # Function for checking User Input
 def inputTextChecker(input):
     user_input = input.split(" ")
@@ -175,15 +172,11 @@ def getUserInput(userInput):
                     updated_input.append(letter)                
     return updated_input
 
+## Function for saving tagged sentences in text file
 def saveTaggedInputTextToFile(taggedText):
-    # Palitan na lang ang address
     userFileOpen = open(os.path.join(basedir, "datasets", "user_inputs.txt"), 'a')
-    
-    # If button is clicked for separating user inputs from original datasets
     textFileTransfer(taggedText, userFileOpen)
-
     userFileOpen.close()
-    
     return taggedText
 
 def mergeTextFiles():
