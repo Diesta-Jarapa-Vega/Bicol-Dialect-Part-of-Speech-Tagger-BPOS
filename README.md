@@ -16,3 +16,9 @@ pip install -r requirements.txt
 
 <img src="bpostagger\assets\images\test_app.png" />
 
+
+## Important Packages ##
+- [PyQt5](https://pypi.org/project/PyQt5/);
+- [matplotlib](https://pypi.org/project/matplotlib/);
+- [sklearn-crfsuite](https://sklearn-crfsuite.readthedocs.io/en/latest/);
+- [python-crfsuite](https://python-crfsuite.readthedocs.io/en/latest);
