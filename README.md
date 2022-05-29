@@ -9,4 +9,4 @@ BPOS: A PART-OF-SPEECH TAGGER USING  CONDITIONAL RANDOM FIELD  FOR BICOL DIALECT
 pip install -r requirements.txt
 ```
 
-2. cd bpostagger and run python BPOS_Tagger.py
+2. Inside bpostagger: ``` python BPOS_Tagger.py ```
