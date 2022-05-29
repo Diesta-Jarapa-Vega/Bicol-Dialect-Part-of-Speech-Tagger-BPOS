@@ -12,7 +12,7 @@ pip install -r requirements.txt
 2. Inside bpostagger: ``` python BPOS_Tagger.py ```
 
 ## Demo
-<img src="bpostagger\assets\images\app.PNG" />
+<img src="bpostagger\assets\images\app.png" />
 
-<img src="bpostagger\assets\images\test_app.PNG" />
+<img src="bpostagger\assets\images\test_app.png" />
 
