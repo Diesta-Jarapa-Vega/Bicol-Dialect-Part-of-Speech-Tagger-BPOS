@@ -1,0 +1,9 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "sklearn",
+    "sklearn_crfsuite",
+    "PyQt5",
+    "nltk"
+]
+build-backend = "setuptools.build_meta"
